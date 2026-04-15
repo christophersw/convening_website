@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<article class="speaker-profile">
+  <a class="speaker-back-link" href="{{ '/speakers/' | relative_url }}">Back to Speaker Bios</a>
+
+  <div class="speaker-hero panel">
+    <img class="speaker-hero-photo" src="{{ page.photo | relative_url }}" alt="{{ page.photo_alt }}" />
+    <div>
+      <h2 class="speaker-hero-name">{{ page.speaker_name }}</h2>
+      <p class="speaker-hero-title"><strong>{{ page.speaker_title }}</strong></p>
+      {% if page.email %}
+      <p><a href="mailto:{{ page.email }}">{{ page.email }}</a></p>
+      {% endif %}
+      {% if page.expertise %}
+      <p><strong>Areas of Expertise:</strong> {{ page.expertise }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Biography</h3>
+    <p>{{ content | strip }}</p>
+  </div>
+
+  {% if page.sessions and page.sessions.size > 0 %}
+  <div class="panel speaker-sessions">
+    <h3>Speaking Sessions</h3>
+    <ul>
+      {% for session in page.sessions %}
+      <li>
+        <strong>{{ session.time }}</strong> | {{ session.title }}
+        {% if session.agenda_url %}
+        - <a href="{{ session.agenda_url | relative_url }}">View in agenda</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</article>

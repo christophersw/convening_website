@@ -14,12 +14,12 @@ permalink: /agenda/
         <p class="agenda-title">Registration</p>
       </div>
     </li>
-    <li>
+    <li id="welcoming-remarks">
       <span class="time">8:30-8:45 AM</span>
       <div class="agenda-session">
         <p class="agenda-title">Welcoming Remarks</p>
-        <a class="agenda-speaker-line agenda-speaker-link" href="{{ '/speakers/' | relative_url }}">
-          <img class="agenda-headshot" src="{{ '/assets/images/speakers/placeholder.svg' | relative_url }}" alt="Headshot placeholder for Lisa Mantel" />
+        <a class="agenda-speaker-line agenda-speaker-link" href="{{ '/speakers/lisa-mantel/' | relative_url }}">
+          <img class="agenda-headshot" src="{{ '/assets/images/speakers/lisa-mantel.jpg' | relative_url }}" alt="Headshot of Lisa Mantel" />
           <span><strong>Lisa Mantel</strong>, University of Maryland Center for Cyber, Health, and Hazard Strategies</span>
         </a>
       </div>
@@ -154,6 +154,6 @@ permalink: /agenda/
 ### Notes
 
 - Agenda details can be updated directly in this file.
-- Speaker headshots and names link to the Speaker Bios page.
+- Speaker headshots and names should link to individual speaker profile pages when available.
 - To update a speaker, replace the name, title text, and image `src` in the matching session.
 - Keep time format consistent for readability.

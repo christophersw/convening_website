@@ -240,6 +240,79 @@ a:hover {
   background: #d9e2ec;
 }
 
+.speaker-profile {
+  display: grid;
+  gap: 1rem;
+}
+
+.speaker-back-link {
+  font-weight: 600;
+}
+
+.speaker-hero {
+  display: grid;
+  grid-template-columns: minmax(180px, 220px) 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.speaker-hero-name {
+  margin-bottom: 0.4rem;
+}
+
+.speaker-hero-title {
+  margin-top: 0;
+}
+
+.speaker-hero-photo {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #d9e2ec;
+}
+
+.speaker-sessions ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.logo-panel {
+  padding: 1.25rem;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.logo-link:hover {
+  border-color: #bcccdc;
+}
+
+.partner-logo {
+  max-width: 100%;
+  max-height: 82px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .map-panel {
   padding: 0.9rem;
 }
@@ -275,5 +348,13 @@ a:hover {
 
   .map-embed {
     min-height: 320px;
+  }
+
+  .speaker-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .speaker-hero-photo {
+    max-width: 180px;
   }
 }
