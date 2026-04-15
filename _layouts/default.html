@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 | default: site.description }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <p class="eyebrow">Statewide Convening</p>
+        <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        <p class="event-meta">Tuesday, June 23, 2026 | 8:30 AM - 4:30 PM</p>
+        <p class="event-meta">University of Maryland, Baltimore | SMC Campus Center</p>
+        <a class="button primary" href="{{ site.registration_url }}" target="_blank" rel="noopener">Register</a>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Primary">
+      <div class="container nav-inner">
+        <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
+        <a href="{{ '/agenda/' | relative_url }}" {% if page.url == '/agenda/' %}aria-current="page"{% endif %}>Agenda</a>
+        <a href="{{ '/location/' | relative_url }}" {% if page.url == '/location/' %}aria-current="page"{% endif %}>Location</a>
+        <a href="{{ '/speakers/' | relative_url }}" {% if page.url == '/speakers/' %}aria-current="page"{% endif %}>Speaker Bios</a>
+        <a href="{{ '/register/' | relative_url }}" {% if page.url == '/register/' %}aria-current="page"{% endif %}>Registration</a>
+      </div>
+    </nav>
+
+    <main id="main" class="container page-content">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>Contact</h2>
+          <p>
+            Lisa Mantel<br />
+            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          </p>
+        </div>
+        <div>
+          <h2>About the Project</h2>
+          <p>
+            This convening is part of the Resilient Maryland Defense Communities Project.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
