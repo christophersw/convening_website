@@ -3,7 +3,7 @@ email: lmantel@umaryland.edu
 description: >-
   A statewide convening focused on resilience planning for Maryland defense communities.
 baseurl: ""
-url: ""
+url: "https://mdresilienceconvening.org"
 registration_url: "https://example.com/register"
 
 markdown: kramdown
