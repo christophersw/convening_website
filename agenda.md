@@ -78,16 +78,20 @@ permalink: /agenda/
         </a>
       </div>
     </li>
-    <li>
-      <span class="time">12:00-1:30 PM</span>
+    <li class="agenda-has-parallel">
+      <span class="time">12:00 PM</span>
       <div class="agenda-session">
-        <p class="agenda-title">Military Installation Commanders Meeting (closed door session + lunch)</p>
-      </div>
-    </li>
-    <li>
-      <span class="time">12:00-1:00 PM</span>
-      <div class="agenda-session">
-        <p class="agenda-title">Catered Lunch and Networking</p>
+        <p class="agenda-title">Parallel Tracks</p>
+        <div class="agenda-parallel">
+          <article class="agenda-track">
+            <p class="agenda-track-time">12:00-1:30 PM</p>
+            <p class="agenda-track-title">Military Installation Commanders Meeting (closed door session + lunch)</p>
+          </article>
+          <article class="agenda-track">
+            <p class="agenda-track-time">12:00-1:00 PM</p>
+            <p class="agenda-track-title">Catered Lunch and Networking</p>
+          </article>
+        </div>
       </div>
     </li>
     <li>
