@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+<article class="session-page">
+  <a class="speaker-back-link" href="{{ '/agenda/' | relative_url }}">Back to Agenda</a>
+
+  <div class="panel">
+    <h2>{{ page.session_title | default: page.title }}</h2>
+    <p><strong>Time:</strong> {{ page.session_time }}</p>
+    {% if page.track %}
+    <p><strong>Track:</strong> {{ page.track }}</p>
+    {% endif %}
+  </div>
+
+  <div class="panel">
+    <h3>Description</h3>
+    {{ content }}
+  </div>
+
+  <div class="panel speaker-sessions">
+    <h3>Speakers</h3>
+    {% if page.speakers and page.speakers.size > 0 %}
+    <div class="session-speaker-grid">
+      {% for speaker in page.speakers %}
+      {% assign speaker_page = nil %}
+      {% if speaker.url %}
+        {% assign speaker_page = site.pages | where: "url", speaker.url | first %}
+      {% endif %}
+      {% assign preview_photo = speaker.photo | default: speaker_page.photo | default: '/assets/images/speakers/placeholder.svg' %}
+      {% assign preview_alt = speaker.photo_alt | default: speaker_page.photo_alt | default: 'Speaker photo' %}
+      {% assign preview_title = speaker.role | default: speaker_page.speaker_title | default: 'Speaker' %}
+      {% assign preview_description = speaker.short_description | default: speaker_page.short_description | default: speaker.description | default: speaker_page.excerpt %}
+
+      {% if speaker.url %}
+      <a class="session-speaker-card" href="{{ speaker.url | relative_url }}">
+      {% else %}
+      <div class="session-speaker-card">
+      {% endif %}
+        <img class="session-speaker-photo" src="{{ preview_photo | relative_url }}" alt="{{ preview_alt }}" />
+        <div class="session-speaker-content">
+          <h4 class="session-speaker-name">{{ speaker.name }}</h4>
+          <p class="session-speaker-title"><strong>{{ preview_title }}</strong></p>
+          <p class="session-speaker-description">
+            {% if preview_description %}
+              {{ preview_description | strip_html | normalize_whitespace | truncate: 150 }}
+            {% else %}
+              Full speaker profile and session details are available on the individual speaker page.
+            {% endif %}
+          </p>
+        </div>
+      {% if speaker.url %}
+      </a>
+      {% else %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>Speaker details coming soon.</p>
+    {% endif %}
+  </div>
+</article>

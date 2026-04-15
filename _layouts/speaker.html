@@ -13,9 +13,6 @@ layout: default
       {% if page.email %}
       <p><a href="mailto:{{ page.email }}">{{ page.email }}</a></p>
       {% endif %}
-      {% if page.expertise %}
-      <p><strong>Areas of Expertise:</strong> {{ page.expertise }}</p>
-      {% endif %}
     </div>
   </div>
 
@@ -31,8 +28,10 @@ layout: default
       {% for session in page.sessions %}
       <li>
         <strong>{{ session.time }}</strong> | {{ session.title }}
-        {% if session.agenda_url %}
-        - <a href="{{ session.agenda_url | relative_url }}">View in agenda</a>
+        {% if session.session_url %}
+        - <a href="{{ session.session_url | relative_url }}">View session details</a>
+        {% elsif session.agenda_url %}
+        - <a href="{{ session.agenda_url | relative_url }}">View session details</a>
         {% endif %}
       </li>
       {% endfor %}

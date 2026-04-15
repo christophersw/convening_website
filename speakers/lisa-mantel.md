@@ -7,11 +7,11 @@ speaker_title: Senior Law and Policy Analyst, University of Maryland Center for 
 photo: /assets/images/speakers/lisa-mantel.jpg
 photo_alt: Headshot of Lisa Mantel
 email: lmantel@umaryland.edu
-expertise: Project management; Grant management; Emergency management planning and response; Stakeholder engagement and outreach; Law enforcement research and policy; Training and exercises
+short_description: Public safety and emergency management professional focused on resilience planning, policy, and stakeholder coordination.
 sessions:
   - time: 8:30-8:45 AM
     title: Welcoming Remarks
-    agenda_url: /agenda/#welcoming-remarks
+    session_url: /agenda/sessions/welcoming-remarks/
 ---
 Lisa Mantel is a public safety and emergency management professional with experience spanning 9-1-1 operations, policy, and community preparedness. She has been passionate about emergency readiness since her undergraduate years and has focused on helping communities prepare for, respond to, and recover from hazards.
 

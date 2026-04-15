@@ -1,4 +1,4 @@
-# Convening Website
+sc# Convening Website
 
 Static event website built for GitHub Pages with markdown-first content editing.
 
