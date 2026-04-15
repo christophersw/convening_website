@@ -175,6 +175,50 @@ a:hover {
   color: var(--brand-strong);
 }
 
+.agenda-session {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.agenda-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.agenda-speaker-line {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.agenda-speaker-link {
+  text-decoration: none;
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.agenda-speaker-link:hover {
+  color: var(--brand-strong);
+}
+
+.agenda-speaker-link:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.agenda-headshot {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: #d9e2ec;
+  flex: 0 0 42px;
+}
+
 .speaker-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -223,6 +267,10 @@ a:hover {
   .agenda-list li {
     grid-template-columns: 1fr;
     gap: 0.35rem;
+  }
+
+  .agenda-speaker-line {
+    align-items: flex-start;
   }
 
   .map-embed {
