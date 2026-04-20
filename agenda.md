@@ -155,9 +155,3 @@ permalink: /agenda/
   </ul>
 </div>
 
-### Notes
-
-- Agenda details can be updated directly in this file.
-- Speaker headshots and names should link to individual speaker profile pages when available.
-- To update a speaker, replace the name, title text, and image `src` in the matching session.
-- Keep time format consistent for readability.
