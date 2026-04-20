@@ -35,7 +35,7 @@ This convening is intended for professionals and stakeholders engaged in plannin
 
 <div class="panel logo-panel">
   <div class="logo-grid">
-    <a class="logo-link" href="https://commerce.maryland.gov/" target="_blank" rel="noopener">
+    <a class="logo-link" href="https://commerce.maryland.gov/compatibleuse" target="_blank" rel="noopener">
       <img class="partner-logo" src="{{ '/assets/images/logos/maryland-commerce.jpg' | relative_url }}" alt="Maryland Department of Commerce logo" />
     </a>
     <a class="logo-link" href="https://www.umaryland.edu/chhs/" target="_blank" rel="noopener">
