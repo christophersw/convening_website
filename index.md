@@ -33,13 +33,8 @@ This convening is intended for professionals and stakeholders engaged in plannin
 - Regional planning organizations and councils of government
 - Nonprofit, academic, and private-sector partners working on resilience, climate adaptation, or infrastructure
 
-## Presented By
-
 <div class="panel logo-panel">
   <div class="logo-grid">
-    <a class="logo-link" href="https://oldcc.gov/" target="_blank" rel="noopener">
-      <img class="partner-logo" src="{{ '/assets/images/logos/oldcc.png' | relative_url }}" alt="Office of Local Defense Community Cooperation logo" />
-    </a>
     <a class="logo-link" href="https://commerce.maryland.gov/" target="_blank" rel="noopener">
       <img class="partner-logo" src="{{ '/assets/images/logos/maryland-commerce.jpg' | relative_url }}" alt="Maryland Department of Commerce logo" />
     </a>
