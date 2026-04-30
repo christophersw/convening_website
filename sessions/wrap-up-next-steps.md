@@ -9,4 +9,4 @@ speakers:
     role: Closing Speaker
 ---
 
-Closing summary of key themes, outcomes, and recommended next steps following the convening.
+Coming Soon.

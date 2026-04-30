@@ -9,4 +9,4 @@ speakers:
     role: Speaker
 ---
 
-Overview of statewide resilience planning priorities, coordination opportunities, and implementation considerations.
+Coming Soon.

@@ -9,4 +9,4 @@ speakers:
     role: Presenter
 ---
 
-Presentation of key findings, observed risks, and strategic insights from the Resilient Maryland Defense Communities project.
+Coming Soon.

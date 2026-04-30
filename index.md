@@ -27,9 +27,9 @@ Through presentations, panels, and facilitated discussions, participants will:
 
 This convening is intended for professionals and stakeholders engaged in planning, resilience, and defense community support, including:
 
-- Local government planners and emergency managers
+- Local and state government planners and emergency managers 
+- Public works directors, and utility providers
 - Military installation representatives and liaisons
-- State agency staff
 - Regional planning organizations and councils of government
 - Nonprofit, academic, and private-sector partners working on resilience, climate adaptation, or infrastructure
 
@@ -40,6 +40,12 @@ This convening is intended for professionals and stakeholders engaged in plannin
     </a>
     <a class="logo-link" href="https://www.umaryland.edu/chhs/" target="_blank" rel="noopener">
       <img class="partner-logo" src="{{ '/assets/images/logos/chhs.png' | relative_url }}" alt="University of Maryland Center for Cyber, Health, and Hazard Strategies logo" />
+    </a>
+    <a class="logo-link" href="https://mdem.maryland.gov/pages/resilience-strategy.aspx" target="_blank" rel="noopener">
+      <img class="partner-logo" src="{{ '/assets/images/logos/mdem-mor.png' | relative_url }}" alt="Maryland Department of Emergency Management Office of Resilience" />
+    </a>
+    <a class="logo-link" href="https://planning.maryland.gov/" target="_blank" rel="noopener">
+      <img class="partner-logo" src="{{ '/assets/images/logos/mdp.png' | relative_url }}" alt="Maryland Department of Planning logo" />
     </a>
   </div>
 </div>
