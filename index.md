@@ -27,10 +27,10 @@ Through presentations, panels, and facilitated discussions, participants will:
 
 This convening is intended for professionals and stakeholders engaged in planning, resilience, and defense community support, including:
 
-- Local and state government planners and emergency managers 
-- Public works directors, and utility providers
+- Loca and state government planners and emergency managers 
+- Public works directors and utility providers
 - Military installation representatives and liaisons
-- Regional planning organizations and councils of government
+- Regional planning organizations and Councils of Government
 - Nonprofit, academic, and private-sector partners working on resilience, climate adaptation, or infrastructure
 
 <div class="panel logo-panel">
