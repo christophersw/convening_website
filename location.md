@@ -13,12 +13,7 @@ permalink: /location/
 ## Parking and Transportation
 
 <div class="panel">
-  <p>Add parking and transit instructions here.</p>
-  <ul>
-    <li><strong>Parking:</strong> Add garage details and validation information.</li>
-    <li><strong>Public Transit:</strong> Add nearest bus/rail options.</li>
-    <li><strong>Arrival:</strong> Add check-in location or signage notes.</li>
-  </ul>
+  <p>Coming Soon</p>
 </div>
 
 ## Map
