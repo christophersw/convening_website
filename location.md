@@ -19,6 +19,8 @@ permalink: /location/
 
 <div class="panel">
   <p>Parking is available in any <a href="https://www.umaryland.edu/parking/garages/" target="_blank" rel="noopener noreferrer">University of Maryland, Baltimore garage</a>. The closest garage is the <strong>Pratt Street Garage</strong>, 646 W. Pratt St., which is connected to the SMC Campus Center. The Penn Street Garage, 120 S. Penn St., is one block away. </p>
+
+  <p> <strong>Attendees will receive a parking voucher at the registration table upon check-in.</strong> The voucher can be used in any UMB garage. </p>
 </div>
 
 ## Map
