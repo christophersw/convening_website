@@ -334,6 +334,7 @@ a:hover {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center top;
   border-radius: 3px;
   background: #d9d2c7;
 }
@@ -368,6 +369,7 @@ a:hover {
   max-width: 220px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center top;
   border-radius: 4px;
   border: 1px solid var(--line);
   background: #d9d2c7;
@@ -411,8 +413,16 @@ a:hover {
   height: 72px;
   border-radius: 4px;
   object-fit: cover;
+  object-position: center top;
   border: 1px solid var(--line);
   background: #d9d2c7;
+}
+
+.speaker-hero-photo[src$="placeholder.svg"],
+.session-speaker-photo[src$="placeholder.svg"],
+.speaker-photo[src$="placeholder.svg"] {
+  border: none;
+  background: transparent;
 }
 
 .session-speaker-name {

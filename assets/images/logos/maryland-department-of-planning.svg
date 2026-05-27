@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260" role="img" aria-labelledby="title desc">
+  <title id="title">Maryland Department of Planning</title>
+  <desc id="desc">Text-based logo for Maryland Department of Planning.</desc>
+  <rect width="900" height="260" fill="#ffffff"/>
+  <rect x="8" y="8" width="884" height="244" rx="10" fill="#ffffff" stroke="#184d2f" stroke-width="4"/>
+  <rect x="24" y="24" width="12" height="212" fill="#184d2f"/>
+  <text x="56" y="100" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" fill="#184d2f">Maryland Department of Planning</text>
+  <text x="56" y="160" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#2b2b2b">State of Maryland</text>
+</svg>

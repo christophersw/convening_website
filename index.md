@@ -36,6 +36,20 @@ This convening is intended for professionals and stakeholders engaged in plannin
 - Regional planning organizations and councils of government
 - Nonprofit, academic, and private-sector partners working on resilience, climate adaptation, or infrastructure
 
+### Why Should You Attend?
+
+<strong>Help shape the future of resilience across Maryland’s military installations and defense communities.</strong>
+
+During the event, we will present the draft Collaboration Framework and actively seek
+partner feedback to refine it. Your insights will be critical to ensuring the final
+recommendations are actionable, feasible, and impactful in addressing the resilience
+challenges facing our state.
+
+This is your opportunity to influence the direction and next steps of this project, making
+sure the framework not only reflects shared priorities, but also closely aligns with your
+own resilience goals. Your participation will help ensure this work is grounded in real-
+world needs and positioned for meaningful implementation.
+
 <div class="panel logo-panel">
   <div class="logo-grid">
     <a class="logo-link" href="https://commerce.maryland.gov/compatibleuse" target="_blank" rel="noopener">
