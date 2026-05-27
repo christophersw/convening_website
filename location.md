@@ -10,10 +10,15 @@ permalink: /location/
   <p><strong>University of Maryland, Baltimore</strong><br />SMC Campus Center<br />621 W Lombard Street<br />Baltimore, MD 21201</p>
 </div>
 
+## Getting Here
+<div class="panel">
+  <p>The Campus Center is located on West Lombard Street, between Greene Street and Penn Street. For detailed directions and transportation options, please visit the University of Maryland, Baltimore's official <a href="https://www.umaryland.edu/campuscenter/visit/getting-here/" target="_blank" rel="noopener noreferrer">"Getting Here" page</a>.</p>
+</div>
+
 ## Parking and Transportation
 
 <div class="panel">
-  <p>Coming Soon</p>
+  <p>Parking is available in any <a href="https://www.umaryland.edu/parking/garages/" target="_blank" rel="noopener noreferrer">University of Maryland, Baltimore garage</a>. The closest garage is the <strong>Pratt Street Garage</strong>, 646 W. Pratt St., which is connected to the SMC Campus Center. The Penn Street Garage, 120 S. Penn St., is one block away. </p>
 </div>
 
 ## Map
