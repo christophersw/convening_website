@@ -11,9 +11,6 @@ speakers:
   - name: Brian Lazarchick
     role: Panelist
     url: /speakers/brian-lazarchick/
-  - name: Hannah Pajewski
-    role: Panelist
-    url: /speakers/hannah-pajewski/
 ---
 
 Coming Soon.
