@@ -1,0 +1,23 @@
+{%- comment -%}
+Renders a panel's description and a row of small circular speaker headshots
+beneath its agenda heading. Pulls from the session page's front matter so the
+agenda stays in sync with the session files.
+
+Parameter:
+  panel - the session page object (looked up by permalink in agenda.md)
+{%- endcomment -%}
+{%- assign panel_description = include.panel.content | strip_html | strip | normalize_whitespace -%}
+{%- if panel_description != "" -%}
+<p class="agenda-description">{{ panel_description }}</p>
+{%- endif -%}
+{%- if include.panel.speakers and include.panel.speakers.size > 0 -%}
+<div class="agenda-speaker-line">
+  {%- for speaker in include.panel.speakers -%}
+  {%- assign speaker_page = site.pages | where: "url", speaker.url | first -%}
+  {%- assign speaker_photo = speaker.photo | default: speaker_page.photo | default: '/assets/images/speakers/placeholder.svg' -%}
+  <a class="agenda-speaker-link" href="{{ speaker.url | relative_url }}" title="{{ speaker.name }} — {{ speaker.role }}">
+    <img class="agenda-headshot" src="{{ speaker_photo | relative_url }}" alt="{{ speaker.name }}" loading="lazy" />
+  </a>
+  {%- endfor -%}
+</div>
+{%- endif -%}

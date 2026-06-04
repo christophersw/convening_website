@@ -30,6 +30,7 @@ layout: default
       {% assign preview_photo = speaker.photo | default: speaker_page.photo | default: '/assets/images/speakers/placeholder.svg' %}
       {% assign preview_alt = speaker.photo_alt | default: speaker_page.photo_alt | default: 'Speaker photo' %}
       {% assign preview_title = speaker.role | default: speaker_page.speaker_title | default: 'Speaker' %}
+      {% assign preview_org_title = speaker.title | default: speaker_page.speaker_title %}
       {% assign preview_description = speaker.short_description | default: speaker_page.short_description | default: speaker.description | default: speaker_page.excerpt %}
 
       {% if speaker.url %}
@@ -41,13 +42,14 @@ layout: default
         <div class="session-speaker-content">
           <h4 class="session-speaker-name">{{ speaker.name }}</h4>
           <p class="session-speaker-title"><strong>{{ preview_title }}</strong></p>
+          {% if preview_org_title and preview_org_title != preview_title %}
+          <p class="session-speaker-org-title">{{ preview_org_title }}</p>
+          {% endif %}
+          {% if preview_description %}
           <p class="session-speaker-description">
-            {% if preview_description %}
-              {{ preview_description | strip_html | normalize_whitespace | truncate: 150 }}
-            {% else %}
-              Coming Soon.
-            {% endif %}
+            {{ preview_description | strip_html | normalize_whitespace | truncate: 150 }}
           </p>
+          {% endif %}
         </div>
       {% if speaker.url %}
       </a>

@@ -246,6 +246,13 @@ a:hover {
   font-weight: 700;
 }
 
+.agenda-description {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
 .agenda-session-link {
   color: inherit;
   text-decoration-thickness: 1px;
@@ -283,8 +290,9 @@ a:hover {
 .agenda-headshot {
   width: 42px;
   height: 42px;
-  border-radius: 50%;
+  border-radius: 4px;
   object-fit: cover;
+  object-position: center top;
   border: 1px solid var(--line);
   background: #d9d2c7;
   flex: 0 0 42px;
@@ -432,6 +440,12 @@ a:hover {
 .session-speaker-title {
   margin: 0.2rem 0 0.25rem;
   color: var(--ink-soft);
+}
+
+.session-speaker-org-title {
+  margin: 0 0 0.25rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
 }
 
 .session-speaker-description {

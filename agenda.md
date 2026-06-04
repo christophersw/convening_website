@@ -45,14 +45,16 @@ permalink: /agenda/
       <span class="time">10:30-11:15 AM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/panel-flooding-community-partnerships/' | relative_url }}">Panel: Flooding and Community Partnerships</a></p>
-
+        {% assign panel = site.pages | where: "permalink", "/agenda/sessions/panel-flooding-community-partnerships/" | first %}
+        {% include agenda-panel-detail.html panel=panel %}
       </div>
     </li>
     <li>
       <span class="time">11:15 AM-12:00 PM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/panel-innovative-energy-partnerships/' | relative_url }}">Panel: Innovative Energy Partnerships</a></p>
-
+        {% assign panel = site.pages | where: "permalink", "/agenda/sessions/panel-innovative-energy-partnerships/" | first %}
+        {% include agenda-panel-detail.html panel=panel %}
       </div>
     </li>
     <li class="agenda-has-parallel">
@@ -75,14 +77,16 @@ permalink: /agenda/
       <span class="time">1:00-1:45 PM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/panel-federal-state-financing-opportunities/' | relative_url }}">Panel: Federal and State Financing Opportunities</a></p>
-
+        {% assign panel = site.pages | where: "permalink", "/agenda/sessions/panel-federal-state-financing-opportunities/" | first %}
+        {% include agenda-panel-detail.html panel=panel %}
       </div>
     </li>
     <li>
       <span class="time">1:45-2:30 PM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/panel-creative-financing-opportunities/' | relative_url }}">Panel: Creative Financing Opportunities</a></p>
-
+        {% assign panel = site.pages | where: "permalink", "/agenda/sessions/panel-creative-financing-opportunities/" | first %}
+        {% include agenda-panel-detail.html panel=panel %}
       </div>
     </li>
     <li>
