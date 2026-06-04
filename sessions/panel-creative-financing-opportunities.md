@@ -19,4 +19,4 @@ speakers:
     url: /speakers/stacey-schaefer/
 ---
 
-Coming Soon.
+This panel examines nontraditional and blended financing models that can advance resilience, energy, and infrastructure projects when grant funding alone is insufficient. Panelists will discuss tools such as green banks, resilience authorities, revolving funds, and public-private partnerships, with examples relevant to flooding mitigation, energy resilience, and sustainable community development.

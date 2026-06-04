@@ -4,8 +4,8 @@ title: "LaRon Russell"
 permalink: /speakers/laron-russell/
 speaker_name: "LaRon Russell"
 speaker_title: "Project Officer, Hazard Mitigation, Maryland Department of Emergency Management"
-photo: /assets/images/speakers/placeholder.svg
-photo_alt: "Headshot placeholder for LaRon Russell"
+photo: /assets/images/speakers/laron-russell.png
+photo_alt: "Headshot of LaRon Russell"
 sessions:
   - time: "1:00-1:45 PM"
     title: "Panel: Federal and State Financing Opportunities"
