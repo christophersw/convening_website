@@ -1,11 +1,11 @@
 ---
 layout: speaker
-title: "Cyrena Eitler"
-permalink: /speakers/cyrena-eitler/
-speaker_name: "Cyrena Eitler"
-speaker_title: "Strategic Planning Advisor, Stantec (retired)"
-photo: /assets/images/speakers/cyrena-eitler.jpg
-photo_alt: "Headshot of Cyrena Eitler"
+title: "Cyrena Chiles Eitler"
+permalink: /speakers/cyrena-chiles-eitler/
+speaker_name: "Cyrena Chiles Eitler"
+speaker_title: "Strategic Planning Advisor"
+photo: /assets/images/speakers/cyrena-chiles-eitler.jpg
+photo_alt: "Headshot of Cyrena Chiles Eitler"
 sessions:
   - time: "10:30-11:15 AM"
     title: "Panel: Flooding and Community Partnerships"

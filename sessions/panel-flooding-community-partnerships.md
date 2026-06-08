@@ -5,9 +5,9 @@ permalink: /agenda/sessions/panel-flooding-community-partnerships/
 session_title: "Panel: Flooding and Community Partnerships"
 session_time: 10:30-11:15 AM
 speakers:
-  - name: Cyrena Eitler
+  - name: Cyrena Chiles Eitler
     role: Facilitator/Moderator
-    url: /speakers/cyrena-eitler/
+    url: /speakers/cyrena-chiles-eitler/
   - name: Eric Leshinsky
     role: Panelist
     url: /speakers/eric-leshinsky/
