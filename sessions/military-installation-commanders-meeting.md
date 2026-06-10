@@ -2,8 +2,8 @@
 layout: session
 title: Military Installation Commanders Meeting
 permalink: /agenda/sessions/military-installation-commanders-meeting/
-session_title: Military Installation Commanders Meeting (closed door session + lunch)
-session_time: 12:00-1:30 PM
+session_title: Military Installation Commanders Meeting + Lunch (closed door session)
+session_time: 11:15 AM-1:15 PM
 track: Parallel Track A
 ---
 

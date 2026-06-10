@@ -7,7 +7,7 @@ speaker_title: "Chief Credit Officer, Montgomery County Green Bank"
 photo: /assets/images/speakers/mary-edwards.jpg
 photo_alt: "Headshot of Mary Edwards"
 sessions:
-  - time: "1:45-2:30 PM"
+  - time: "1:35-2:25 PM"
     title: "Panel: Creative Financing Opportunities"
     session_url: /agenda/sessions/panel-creative-financing-opportunities/
 ---

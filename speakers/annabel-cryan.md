@@ -7,7 +7,7 @@ speaker_title: "Director of Innovative Financing Strategies, STV"
 photo: /assets/images/speakers/annabel-cryan.jpg
 photo_alt: "Headshot of Annabel Cryan"
 sessions:
-  - time: "1:45-2:30 PM"
+  - time: "1:35-2:25 PM"
     title: "Panel: Creative Financing Opportunities"
     session_url: /agenda/sessions/panel-creative-financing-opportunities/
 ---

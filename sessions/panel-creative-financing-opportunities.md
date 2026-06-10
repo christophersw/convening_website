@@ -3,7 +3,7 @@ layout: session
 title: "Panel: Creative Financing Opportunities"
 permalink: /agenda/sessions/panel-creative-financing-opportunities/
 session_title: "Panel: Creative Financing Opportunities"
-session_time: 1:45-2:30 PM
+session_time: 1:35-2:25 PM
 speakers:
   - name: Mark Belton
     role: Facilitator/Moderator

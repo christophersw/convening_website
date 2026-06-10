@@ -7,7 +7,7 @@ speaker_title: "Project Officer, Hazard Mitigation, Maryland Department of Emerg
 photo: /assets/images/speakers/laron-russell.png
 photo_alt: "Headshot of LaRon Russell"
 sessions:
-  - time: "1:00-1:45 PM"
+  - time: "12:45-1:35 PM"
     title: "Panel: Federal and State Financing Opportunities"
     session_url: /agenda/sessions/panel-federal-state-financing-opportunities/
 ---

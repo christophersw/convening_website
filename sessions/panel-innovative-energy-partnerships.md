@@ -3,7 +3,7 @@ layout: session
 title: "Panel: Innovative Energy Partnerships"
 permalink: /agenda/sessions/panel-innovative-energy-partnerships/
 session_title: "Panel: Innovative Energy Partnerships"
-session_time: 11:15 AM-12:00 PM
+session_time: 11:00-11:45 AM
 speakers:
   - name: Harry Kleiser
     role: Facilitator/Moderator

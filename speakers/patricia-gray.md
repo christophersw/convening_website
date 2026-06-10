@@ -7,7 +7,7 @@ speaker_title: "Project Manager, OLDCC"
 photo: /assets/images/speakers/patricia-gray.jpg
 photo_alt: "Headshot of Patricia Gray"
 sessions:
-  - time: "1:00-1:45 PM"
+  - time: "12:45-1:35 PM"
     title: "Panel: Federal and State Financing Opportunities"
     session_url: /agenda/sessions/panel-federal-state-financing-opportunities/
 ---

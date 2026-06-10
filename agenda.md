@@ -40,28 +40,21 @@ permalink: /agenda/
       </div>
     </li>
     <li>
-      <span class="time">10:00-10:15 AM</span>
+      <span class="time">10:00-10:45 AM</span>
+      <div class="agenda-session">
+        <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/fireside-chat-flooding-community-partnerships/' | relative_url }}">Fireside Chat: Flooding and Community Partnerships</a></p>
+        {% assign panel = site.pages | where: "permalink", "/agenda/sessions/fireside-chat-flooding-community-partnerships/" | first %}
+        {% include agenda-panel-detail.html panel=panel %}
+      </div>
+    </li>
+    <li>
+      <span class="time">10:45-11:00 AM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/break-morning/' | relative_url }}">Break</a></p>
       </div>
     </li>
     <li>
-      <span class="time">10:15-10:30 AM</span>
-      <div class="agenda-session">
-        <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/statewide-resilience-strategy/' | relative_url }}">Statewide Resilience Strategy</a></p>
-
-      </div>
-    </li>
-    <li>
-      <span class="time">10:30-11:15 AM</span>
-      <div class="agenda-session">
-        <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/panel-flooding-community-partnerships/' | relative_url }}">Panel: Flooding and Community Partnerships</a></p>
-        {% assign panel = site.pages | where: "permalink", "/agenda/sessions/panel-flooding-community-partnerships/" | first %}
-        {% include agenda-panel-detail.html panel=panel %}
-      </div>
-    </li>
-    <li>
-      <span class="time">11:15 AM-12:00 PM</span>
+      <span class="time">11:00-11:45 AM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/panel-innovative-energy-partnerships/' | relative_url }}">Panel: Innovative Energy Partnerships</a></p>
         {% assign panel = site.pages | where: "permalink", "/agenda/sessions/panel-innovative-energy-partnerships/" | first %}
@@ -69,23 +62,23 @@ permalink: /agenda/
       </div>
     </li>
     <li class="agenda-has-parallel">
-      <span class="time">12:00 PM</span>
+      <span class="time">11:15 AM-1:15 PM</span>
       <div class="agenda-session">
         <p class="agenda-title">Parallel Tracks</p>
         <div class="agenda-parallel">
           <article class="agenda-track">
-            <p class="agenda-track-time">12:00-1:30 PM</p>
-            <p class="agenda-track-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/military-installation-commanders-meeting/' | relative_url }}">Military Installation Commanders Meeting (closed door session + lunch)</a></p>
+            <p class="agenda-track-time">11:15 AM-1:15 PM</p>
+            <p class="agenda-track-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/military-installation-commanders-meeting/' | relative_url }}">Military Installation Commanders Meeting + Lunch (closed door session)</a></p>
           </article>
           <article class="agenda-track">
-            <p class="agenda-track-time">12:00-1:00 PM</p>
+            <p class="agenda-track-time">11:45 AM-12:45 PM</p>
             <p class="agenda-track-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/catered-lunch-networking/' | relative_url }}">Catered Lunch and Networking</a></p>
           </article>
         </div>
       </div>
     </li>
     <li>
-      <span class="time">1:00-1:45 PM</span>
+      <span class="time">12:45-1:35 PM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/panel-federal-state-financing-opportunities/' | relative_url }}">Panel: Federal and State Financing Opportunities</a></p>
         {% assign panel = site.pages | where: "permalink", "/agenda/sessions/panel-federal-state-financing-opportunities/" | first %}
@@ -93,7 +86,7 @@ permalink: /agenda/
       </div>
     </li>
     <li>
-      <span class="time">1:45-2:30 PM</span>
+      <span class="time">1:35-2:25 PM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/panel-creative-financing-opportunities/' | relative_url }}">Panel: Creative Financing Opportunities</a></p>
         {% assign panel = site.pages | where: "permalink", "/agenda/sessions/panel-creative-financing-opportunities/" | first %}
@@ -101,33 +94,33 @@ permalink: /agenda/
       </div>
     </li>
     <li>
-      <span class="time">2:30-2:45 PM</span>
+      <span class="time">2:25-2:35 PM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/break-afternoon/' | relative_url }}">Break</a></p>
       </div>
     </li>
     <li>
-      <span class="time">2:45-3:30 PM</span>
+      <span class="time">2:35-3:20 PM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/regional-workshops-breakouts/' | relative_url }}">Regional Workshops / Breakouts</a></p>
 
       </div>
     </li>
     <li>
-      <span class="time">3:30-3:45 PM</span>
+      <span class="time">3:20-3:30 PM</span>
       <div class="agenda-session">
-        <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/transition-break/' | relative_url }}">Transition and Break</a></p>
+        <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/transition-break/' | relative_url }}">Transition &amp; Break</a></p>
       </div>
     </li>
     <li>
-      <span class="time">3:45-4:15 PM</span>
+      <span class="time">3:30-4:00 PM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/wrap-up-next-steps/' | relative_url }}">Wrap-Up and Next Steps</a></p>
 
       </div>
     </li>
     <li>
-      <span class="time">4:15 PM</span>
+      <span class="time">4:00 PM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/adjourn/' | relative_url }}">Adjourn</a></p>
       </div>

@@ -21,7 +21,7 @@ The Maryland Department of Commerce, Office of Military and Federal Affairs (OMF
 ## Event Details
 
 <div class="panel">
-  <p><strong>When:</strong> Tuesday, June 23, 2026 | 8:30 AM to 4:30 PM</p>
+  <p><strong>When:</strong> Tuesday, June 23, 2026 | 8:30 AM to 4:00 PM</p>
   <p><strong>Where:</strong> University of Maryland, Baltimore<br />SMC Campus Center<br />621 W Lombard Street, Baltimore, MD 21201</p>
   <p><strong>Cost:</strong> Free to attend. Breakfast, lunch and parking are also provided at no cost.</p>
 </div>

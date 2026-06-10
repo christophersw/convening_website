@@ -7,7 +7,7 @@ speaker_title: "Program Director, Throwe Environmental"
 photo: /assets/images/speakers/mark-belton.jpg
 photo_alt: "Headshot of Mark Belton"
 sessions:
-  - time: "1:45-2:30 PM"
+  - time: "1:35-2:25 PM"
     title: "Panel: Creative Financing Opportunities"
     session_url: /agenda/sessions/panel-creative-financing-opportunities/
 ---

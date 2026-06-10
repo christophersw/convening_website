@@ -7,7 +7,7 @@ speaker_title: "Vice President of Electric Operations & Construction, Southern M
 photo: /assets/images/speakers/brian-lazarchick.jpg
 photo_alt: "Headshot of Brian Lazarchick"
 sessions:
-  - time: "11:15 AM-12:00 PM"
+  - time: "11:00-11:45 AM"
     title: "Panel: Innovative Energy Partnerships"
     session_url: /agenda/sessions/panel-innovative-energy-partnerships/
 ---

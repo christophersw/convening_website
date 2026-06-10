@@ -7,7 +7,7 @@ speaker_title: "Section Chief, Climate Resilience Program, Maryland Department o
 photo: /assets/images/speakers/leah-sheppard.jpg
 photo_alt: "Headshot of Leah Sheppard"
 sessions:
-  - time: "1:00-1:45 PM"
+  - time: "12:45-1:35 PM"
     title: "Panel: Federal and State Financing Opportunities"
     session_url: /agenda/sessions/panel-federal-state-financing-opportunities/
 ---
