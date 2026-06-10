@@ -18,7 +18,18 @@ permalink: /agenda/
       <span class="time">8:30-8:45 AM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/welcoming-remarks/' | relative_url }}">Welcoming Remarks</a></p>
-
+        {% assign session = site.pages | where: "permalink", "/agenda/sessions/welcoming-remarks/" | first %}
+        {% if session.speakers and session.speakers.size > 0 %}
+        <div class="agenda-speaker-line">
+          {% for speaker in session.speakers %}
+          {% assign speaker_page = site.pages | where: "url", speaker.url | first %}
+          {% assign speaker_photo = speaker.photo | default: speaker_page.photo | default: '/assets/images/speakers/placeholder.svg' %}
+          <a class="agenda-speaker-link" href="{{ speaker.url | relative_url }}" title="{{ speaker.name }} — {{ speaker.role }}">
+            <img class="agenda-headshot" src="{{ speaker_photo | relative_url }}" alt="{{ speaker.name }}" loading="lazy" />
+          </a>
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
     </li>
     <li>
