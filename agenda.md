@@ -61,7 +61,7 @@ permalink: /agenda/
     <li>
       <span class="time">10:45-11:00 AM</span>
       <div class="agenda-session">
-        <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/break-morning/' | relative_url }}">Break</a></p>
+        <p class="agenda-title">Break</p>
       </div>
     </li>
     <li>
@@ -72,20 +72,10 @@ permalink: /agenda/
         {% include agenda-panel-detail.html panel=panel %}
       </div>
     </li>
-    <li class="agenda-has-parallel">
-      <span class="time">11:15 AM-1:15 PM</span>
+    <li>
+      <span class="time">11:45 AM-12:45 PM</span>
       <div class="agenda-session">
-        <p class="agenda-title">Parallel Tracks</p>
-        <div class="agenda-parallel">
-          <article class="agenda-track">
-            <p class="agenda-track-time">11:15 AM-1:15 PM</p>
-            <p class="agenda-track-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/military-installation-commanders-meeting/' | relative_url }}">Military Installation Commanders Meeting + Lunch (closed door session)</a></p>
-          </article>
-          <article class="agenda-track">
-            <p class="agenda-track-time">11:45 AM-12:45 PM</p>
-            <p class="agenda-track-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/catered-lunch-networking/' | relative_url }}">Catered Lunch and Networking</a></p>
-          </article>
-        </div>
+        <p class="agenda-title">Catered Lunch and Networking</p>
       </div>
     </li>
     <li>
@@ -107,7 +97,7 @@ permalink: /agenda/
     <li>
       <span class="time">2:25-2:35 PM</span>
       <div class="agenda-session">
-        <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/break-afternoon/' | relative_url }}">Break</a></p>
+        <p class="agenda-title">Break</p>
       </div>
     </li>
     <li>
@@ -120,7 +110,7 @@ permalink: /agenda/
     <li>
       <span class="time">3:20-3:30 PM</span>
       <div class="agenda-session">
-        <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/transition-break/' | relative_url }}">Transition &amp; Break</a></p>
+        <p class="agenda-title">Transition &amp; Break</p>
       </div>
     </li>
     <li>

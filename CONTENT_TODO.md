@@ -67,17 +67,12 @@ Review and replace draft copy in each session page with final descriptions as ne
 - [ ] sessions/registration.md
 - [ ] sessions/welcoming-remarks.md
 - [ ] sessions/project-findings.md
-- [ ] sessions/break-morning.md
 - [ ] sessions/statewide-resilience-strategy.md
 - [ ] sessions/panel-flooding-community-partnerships.md
 - [ ] sessions/panel-innovative-energy-partnerships.md
-- [ ] sessions/military-installation-commanders-meeting.md
-- [ ] sessions/catered-lunch-networking.md
 - [ ] sessions/panel-federal-state-financing-opportunities.md
 - [ ] sessions/panel-creative-financing-opportunities.md
-- [ ] sessions/break-afternoon.md
 - [ ] sessions/regional-workshops-breakouts.md
-- [ ] sessions/transition-break.md
 - [ ] sessions/wrap-up-next-steps.md
 - [ ] sessions/adjourn.md
 
