@@ -36,18 +36,8 @@ permalink: /agenda/
       <span class="time">8:45-10:00 AM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/project-findings/' | relative_url }}">Resilient Maryland Defense Communities Project Findings</a></p>
-        {% assign session = site.pages | where: "permalink", "/agenda/sessions/project-findings/" | first %}
-        {% if session.speakers and session.speakers.size > 0 %}
-        <div class="agenda-speaker-line">
-          {% for speaker in session.speakers %}
-          {% assign speaker_page = site.pages | where: "url", speaker.url | first %}
-          {% assign speaker_photo = speaker.photo | default: speaker_page.photo | default: '/assets/images/speakers/placeholder.svg' %}
-          <a class="agenda-speaker-link" href="{{ speaker.url | relative_url }}" title="{{ speaker.name }} — {{ speaker.role }}">
-            <img class="agenda-headshot" src="{{ speaker_photo | relative_url }}" alt="{{ speaker.name }}" loading="lazy" />
-          </a>
-          {% endfor %}
-        </div>
-        {% endif %}
+        {% assign panel = site.pages | where: "permalink", "/agenda/sessions/project-findings/" | first %}
+        {% include agenda-panel-detail.html panel=panel %}
       </div>
     </li>
     <li>
@@ -104,7 +94,8 @@ permalink: /agenda/
       <span class="time">2:35-3:20 PM</span>
       <div class="agenda-session">
         <p class="agenda-title"><a class="agenda-session-link" href="{{ '/agenda/sessions/regional-workshops-breakouts/' | relative_url }}">Regional Workshops / Breakouts</a></p>
-
+        {% assign panel = site.pages | where: "permalink", "/agenda/sessions/regional-workshops-breakouts/" | first %}
+        {% include agenda-panel-detail.html panel=panel %}
       </div>
     </li>
     <li>

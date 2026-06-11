@@ -6,7 +6,7 @@ agenda stays in sync with the session files.
 Parameter:
   panel - the session page object (looked up by permalink in agenda.md)
 {%- endcomment -%}
-{%- assign panel_description = include.panel.content | strip_html | strip | normalize_whitespace -%}
+{%- assign panel_description = include.panel.content | markdownify | strip_html | strip | normalize_whitespace -%}
 {%- if panel_description != "" -%}
 <p class="agenda-description">{{ panel_description }}</p>
 {%- endif -%}
