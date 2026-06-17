@@ -13,4 +13,4 @@ speakers:
     url: /speakers/eric-leshinsky/
 ---
 
-This fireside chat explores how military installations and surrounding communities can work together to address shared flooding and climate risks. Using the City of Annapolis and NSA Annapolis collaboration and the City Dock project as a case example, the speakers will discuss governance models, lessons learned, and how successful approaches can be adapted in other defense communities.
+This fireside chat explores how military installations and surrounding communities can work together to address shared flooding risks. Using the City of Annapolis and NSA Annapolis collaboration and the City Dock/USNA Flood Protection project as a case example, speakers will discuss governance models, lessons learned, and how successful approaches can be adapted in other defense communities.
