@@ -56,17 +56,26 @@ sessions:
 </div>
 
 <div class="pbody">
-  <aside class="prail">
-    <h2 class="rail-h">At a Glance</h2>
-    <ul class="prail-list">
-      {%- for row in page.schedule -%}
-      <li class="{% if row.muted %}muted{% endif %}">
-        <span class="prail-time">{{ row.time }}</span>
-        <span class="prail-label">{{ row.label }}</span>
-      </li>
-      {%- endfor -%}
-    </ul>
-  </aside>
+  <div class="pside">
+    <aside class="prail">
+      <h2 class="rail-h">At a Glance</h2>
+      <ul class="prail-list">
+        {%- for row in page.schedule -%}
+        <li class="{% if row.muted %}muted{% endif %}">
+          <span class="prail-time">{{ row.time }}</span>
+          <span class="prail-label">{{ row.label }}</span>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </aside>
+
+    <div class="plogos">
+      <img class="plogo" src="{{ '/assets/images/logos/maryland-commerce.jpg' | relative_url }}" alt="Maryland Department of Commerce logo" />
+      <img class="plogo" src="{{ '/assets/images/logos/chhs.png' | relative_url }}" alt="University of Maryland Center for Cyber, Health, and Hazard Strategies logo" />
+      <img class="plogo" src="{{ '/assets/images/logos/mdem-mor.png' | relative_url }}" alt="Maryland Department of Emergency Management, Office of Resilience logo" />
+      <img class="plogo" src="{{ '/assets/images/logos/mdp.png' | relative_url }}" alt="Maryland Department of Planning logo" />
+    </div>
+  </div>
 
   <main class="pcards">
     {%- for permalink in page.sessions -%}
