@@ -4,7 +4,7 @@
       "type": "stdio",
       "command": "node",
       "args": [
-        "/Users/christopherwebster/.vscode/extensions/vexp.vexp-vscode-2.0.27-darwin-arm64/dist/mcp-server.cjs"
+        "/Users/christopherwebster/.vscode/extensions/vexp.vexp-vscode-2.0.28-darwin-arm64/dist/mcp-server.cjs"
       ],
       "env": {
         "VEXP_WORKSPACE": "/Users/christopherwebster/Projects/convening_website"

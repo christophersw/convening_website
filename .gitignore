@@ -6,3 +6,5 @@ _site/
 vendor/
 screenshots/
 Speakers-Speaker Bios.csv
+# Superpowers brainstorming companion
+.superpowers/

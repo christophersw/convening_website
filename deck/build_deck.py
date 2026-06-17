@@ -28,7 +28,9 @@ Changelog:
 """
 
 import argparse
+import math
 import os
+import re
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
@@ -41,6 +43,7 @@ FONT_DIR = os.path.join(DECK_DIR, "fonts")
 BUILD_DIR = os.path.join(DECK_DIR, "build")
 SPEAKER_IMG_DIR = os.path.join(PROJECT_DIR, "assets", "images", "speakers")
 LOGO_IMG_DIR = os.path.join(PROJECT_DIR, "assets", "images", "logos")
+SPEAKER_PAGES_DIR = os.path.join(PROJECT_DIR, "speakers")
 
 # --------------------------------------------------------------------------
 # Canvas + brand palette (RGB), taken from the site's CSS custom properties
@@ -97,6 +100,102 @@ def font(name, size):
         path = os.path.join(FONT_DIR, _FONT_FILES[name])
         _font_cache[key] = ImageFont.truetype(path, size)
     return _font_cache[key]
+
+
+# --------------------------------------------------------------------------
+# Speaker job titles (sourced from the website speaker pages)
+# --------------------------------------------------------------------------
+_speaker_titles_cache = None
+
+
+def slugify(name):
+    """
+    Convert a speaker's display name to their page slug.
+
+    Lowercases the name, replaces every run of non-alphanumeric characters
+    with a single hyphen, and strips leading/trailing hyphens, matching the
+    speakers/<slug>.md filenames.
+
+    Parameters:
+        name (str): a speaker's display name, e.g. "LaRon Russell".
+
+    Returns:
+        str: the slug, e.g. "laron-russell".
+    """
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+
+def _read_front_matter_value(path, key):
+    """
+    Return a single value from a Markdown file's YAML front matter.
+
+    Reads the block between the first two `---` fences and returns the value
+    for ``key`` with any surrounding single/double quotes stripped.
+
+    Parameters:
+        path (str): path to the .md file.
+        key (str): front-matter key, e.g. "speaker_title".
+
+    Returns:
+        str | None: the value, or None if the key is absent.
+    """
+    with open(path, encoding="utf-8") as handle:
+        lines = handle.read().splitlines()
+    if not lines or lines[0].strip() != "---":
+        return None
+    prefix = key + ":"
+    for line in lines[1:]:
+        if line.strip() == "---":
+            break
+        if line.startswith(prefix):
+            value = line[len(prefix):].strip()
+            if len(value) >= 2 and value[0] in "\"'" and value[-1] == value[0]:
+                value = value[1:-1]
+            return value
+    return None
+
+
+def load_speaker_titles():
+    """
+    Read job titles from the website speaker pages.
+
+    Scans speakers/*.md, pulls the ``speaker_title`` value from each file's
+    leading front-matter block, and caches the result for the build.
+
+    Returns:
+        dict[str, str]: {page slug: job title}, e.g.
+        {"kim-pezza": "Climate Resilience Director, Maryland Comptroller's Office"}.
+    """
+    global _speaker_titles_cache
+    if _speaker_titles_cache is not None:
+        return _speaker_titles_cache
+
+    titles = {}
+    if os.path.isdir(SPEAKER_PAGES_DIR):
+        for filename in sorted(os.listdir(SPEAKER_PAGES_DIR)):
+            if not filename.endswith(".md"):
+                continue
+            title = _read_front_matter_value(
+                os.path.join(SPEAKER_PAGES_DIR, filename), "speaker_title"
+            )
+            if title:
+                titles[filename[:-3]] = title
+    _speaker_titles_cache = titles
+    return titles
+
+
+def speaker_title_for(name):
+    """
+    Look up a speaker's job title by display name.
+
+    Parameters:
+        name (str): speaker display name.
+
+    Returns:
+        str | None: the job title from their website page, or None if there
+        is no matching speakers/<slug>.md or no title in it.
+    """
+    return load_speaker_titles().get(slugify(name))
 
 
 # --------------------------------------------------------------------------
@@ -534,63 +633,165 @@ def split_kicker(title):
     return None, title
 
 
+def speaker_grid_cells(count, zone_top, zone_bottom):
+    """
+    Compute the two-up grid geometry for a slide's speaker zone.
+
+    Lays ``count`` speakers into a grid (1 -> one centered cell, otherwise two
+    columns filled left-to-right, top-to-bottom) and vertically centers the
+    grid within [zone_top, zone_bottom]. A final short row and a lone single
+    cell are centered horizontally. The same geometry feeds both the image
+    renderer and the native-object renderer so the two decks line up.
+
+    Parameters:
+        count (int): number of speakers (>= 1).
+        zone_top (int): top of the available vertical band, in canvas px.
+        zone_bottom (int): bottom of the band, in canvas px.
+
+    Returns:
+        dict: {
+            "columns" (int), "rows" (int),
+            "head" (int): headshot diameter in px,
+            "inner_gap" (int): px between headshot and text block,
+            "name_size" (int), "role_size" (int): canvas font sizes,
+            "title_sizes" (list[int]): descending sizes for title auto-fit,
+            "gap_after_name" (int), "gap_after_role" (int): px,
+            "cells" (list[tuple]): one (cell_x, cell_y, cell_w, cell_h) per
+                speaker, in speaker order.
+        }
+    """
+    if not 1 <= count <= 4:
+        raise ValueError(
+            f"speaker_grid_cells supports 1-4 speakers, got {count}"
+        )
+
+    usable_w = WIDTH - MARGIN * 2
+    col_gap = 90
+    row_gap = 40
+
+    if count == 1:
+        # A lone speaker gets a fixed column narrower than usable_w so the
+        # title text column is not absurdly wide across the whole slide.
+        columns, col_w, head, cell_h = 1, 1400, 240, 300
+        name_size, role_size, title_sizes = 46, 30, [40, 35, 31, 27]
+    else:
+        columns = 2
+        col_w = (usable_w - col_gap) // 2
+        if math.ceil(count / columns) == 1:           # exactly two speakers
+            head, cell_h, name_size, role_size = 220, 280, 44, 30
+            title_sizes = [38, 33, 29, 25]
+        else:                                          # three or four speakers
+            head, cell_h, name_size, role_size = 156, 196, 40, 26
+            title_sizes = [32, 29, 26, 23]
+
+    rows = math.ceil(count / columns)
+    total_h = rows * cell_h + (rows - 1) * row_gap
+    grid_top = zone_top + max(0, (zone_bottom - zone_top - total_h) // 2)
+
+    cells = []
+    for index in range(count):
+        row = index // columns
+        col = index % columns
+        cells_in_row = min(columns, count - row * columns)
+        row_w = cells_in_row * col_w + (cells_in_row - 1) * col_gap
+        row_x0 = (WIDTH - row_w) // 2
+        cell_x = row_x0 + col * (col_w + col_gap)
+        cell_y = grid_top + row * (cell_h + row_gap)
+        cells.append((cell_x, cell_y, col_w, cell_h))
+
+    return {
+        "columns": columns,
+        "rows": rows,
+        "head": head,
+        "inner_gap": 28,
+        "name_size": name_size,
+        "role_size": role_size,
+        "title_sizes": title_sizes,
+        "gap_after_name": 10,
+        "gap_after_role": 8,
+        "cells": cells,
+    }
+
+
 # --------------------------------------------------------------------------
 # Slide composition
 # --------------------------------------------------------------------------
 def draw_speaker_row(canvas, draw, speakers, zone_top, zone_bottom, shape="circle"):
     """
-    Lay out headshots with name + role, centered in a vertical zone.
+    Lay out speakers as a two-up grid: each headshot at left with the speaker's
+    name, panel role, and job title stacked to its right.
 
     Parameters:
         canvas/draw: target image and its draw context.
-        speakers (list): (name, role, image filename) tuples.
-        zone_top/zone_bottom (int): vertical band the row is centered within.
-        shape (str): headshot shape, "circle" or "square".
+        speakers (list): (name, role, image filename[, mode]) tuples.
+        zone_top/zone_bottom (int): vertical band the grid is centered within.
+        shape (str): default headshot shape, "circle" or "square".
     """
     count = len(speakers)
     if count == 0:
         return
-    edge = {1: 360, 2: 330, 3: 300, 4: 280}.get(count, 256)
-    gap = 120 if count <= 2 else (96 if count == 3 else 72)
-    name_font = font("sans-700", 44 if count <= 3 else 40)
-    role_font = font("sans-600", 30)
-    name_lh = int(name_font.size * 1.12)
 
-    # Normalize each speaker to (name, role, filename, mode). A 4th tuple
-    # element overrides the session shape; "full" shows the photo uncropped.
+    grid = speaker_grid_cells(count, zone_top, zone_bottom)
+    head = grid["head"]
+    inner_gap = grid["inner_gap"]
+    name_font = font("sans-700", grid["name_size"])
+    role_font = font("sans-600", grid["role_size"])
+    name_lh = int(grid["name_size"] * 1.12)
+    role_lh = int(grid["role_size"] * 1.25)
+
+    # A 4th tuple element overrides the session shape; "full" shows the photo
+    # uncropped, "square" / "circle" pick the badge shape.
     normalized = [
         (sp[0], sp[1], sp[2], sp[3] if len(sp) > 3 else shape) for sp in speakers
     ]
 
-    # Pre-wrap names to know the block height, then center the block vertically.
-    column_w = edge + gap - 16
-    wrapped = [wrap_text(draw, name, name_font, column_w)[:2] for name, *_ in normalized]
-    max_name_lines = max(len(w) for w in wrapped)
-    block_h = edge + 36 + max_name_lines * name_lh + 14 + 38
-    top = zone_top + max(0, (zone_bottom - zone_top - block_h) // 2)
-
-    row_w = count * edge + (count - 1) * gap
-    x = (WIDTH - row_w) // 2
-    for (name, role, filename, mode), name_lines in zip(normalized, wrapped):
+    for (name, role, filename, mode), (cell_x, cell_y, cell_w, cell_h) in zip(
+        normalized, grid["cells"]
+    ):
         path = os.path.join(SPEAKER_IMG_DIR, filename) if filename else None
+        text_x = cell_x + head + inner_gap
+        text_w = cell_w - head - inner_gap
+
+        # Fit the name (<= 2 lines) and the job title (<= 2 lines, auto-shrunk).
+        name_lines = wrap_text(draw, name, name_font, text_w)[:2]
+        title = speaker_title_for(name)
+        title_lines, title_size = [], None
+        if title:
+            _, title_lines, title_size = fit_display_text(
+                draw, title, text_w, 2, grid["title_sizes"], font_name="sans-400"
+            )
+            title_lines = title_lines[:2]  # fit_display_text may exceed 2 at min size
+        title_lh = int(title_size * 1.18) if title_size else 0
+
+        block_h = len(name_lines) * name_lh + grid["gap_after_name"] + role_lh
+        if title_lines:
+            block_h += grid["gap_after_role"] + len(title_lines) * title_lh
+
+        # Headshot, vertically centered in the cell.
         if mode == "full":
-            badge = headshot_full(path, edge)
+            badge = headshot_full(path, head)
         else:
-            badge = headshot(path, edge, shape=mode)
-        # Each headshot is centered within its edge x edge column slot.
-        badge_x = x + (edge - badge.width) // 2
-        badge_y = top + (edge - badge.height) // 2
+            badge = headshot(path, head, shape=mode)
+        head_y = cell_y + (cell_h - head) // 2
+        badge_x = cell_x + (head - badge.width) // 2
+        badge_y = head_y + (head - badge.height) // 2
         paste_with_shadow(canvas, badge, badge_x, badge_y,
                           shape="circle" if mode == "circle" else "square")
 
-        center_x = x + edge / 2
-        ty = top + edge + 36
+        # Text block, vertically centered against the headshot.
+        ty = cell_y + (cell_h - block_h) // 2
         for line in name_lines:
-            draw.text((center_x, ty), line, font=name_font, fill=INK, anchor="ma")
+            draw.text((text_x, ty), line, font=name_font, fill=INK, anchor="la")
             ty += name_lh
-        ty += 14
-        draw_tracked(draw, (center_x, ty), role.upper(), role_font, RED_DARK, 4, anchor="ma")
-        x += edge + gap
+        ty += grid["gap_after_name"]
+        draw_tracked(draw, (text_x, ty), role.upper(), role_font, RED_DARK, 4, anchor="la")
+        ty += role_lh
+        if title_lines:
+            ty += grid["gap_after_role"]
+            title_font = font("sans-400", title_size)
+            for line in title_lines:
+                draw.text((text_x, ty), line, font=title_font, fill=INK_SOFT, anchor="la")
+                ty += title_lh
 
 
 def draw_support_note(draw, note, zone_top, zone_bottom):
