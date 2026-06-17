@@ -1,0 +1,317 @@
+/*
+ * Title: print-agenda.css — Styles for the printable "Agenda at a Glance" one-pager
+ * Description:
+ *   Scoped styles for the /agenda/print/ page. Lays out a single US-Letter
+ *   portrait sheet: a branded header band followed by a three-column magazine
+ *   flow — a compact "At a Glance" schedule box first, then session description
+ *   cards with speaker headshots and titles. The three-column flow uses the full
+ *   page width so the extended descriptions fit on one side. Optimized for color
+ *   printing (gradient header preserved via print-color-adjust). On screen it
+ *   renders as a centered letter-sized sheet for preview.
+ *
+ * Changelog:
+ *   2026-06-17: Reflowed to a three-column magazine layout and tightened type so
+ *               the full (extended) descriptions and all speakers fit one page.
+ *   2026-06-17: Initial version — Agenda at a Glance printout.
+ */
+
+:root {
+  --ink: #141313;
+  --ink-soft: #4e3f37;
+  --paper: #f7f3ea;
+  --surface: #fffdf7;
+  --line: #b9aa96;
+  --brand-red: #b01923;
+  --brand-gold: #f0b323;
+  --brand-black: #121212;
+  --mod: #6f1016;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Force brand colors and gradients to print. */
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0;
+  font-family: "Public Sans", "Segoe UI", sans-serif;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+h1, h2, h3 {
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* ---- Sheet frame -------------------------------------------------------- */
+
+.sheet {
+  width: 8.5in;
+  margin: 0 auto;
+  padding: 0.35in;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Header band -------------------------------------------------------- */
+
+.phead {
+  background:
+    linear-gradient(135deg,
+      #121212 0 22%,
+      #f0b323 22% 46%,
+      #b01923 46% 74%,
+      #f7f0e2 74% 100%);
+  border-bottom: 2.5px solid var(--brand-gold);
+  overflow: hidden;
+}
+
+.phead-inner {
+  background: linear-gradient(90deg, rgba(18, 18, 18, 0.92), rgba(18, 18, 18, 0.70));
+  padding: 10pt 13pt;
+}
+
+.peyebrow {
+  margin: 0 0 2pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 7.5pt;
+  color: rgba(240, 179, 35, 0.95);
+}
+
+.ptitle {
+  font-size: 17pt;
+  line-height: 1.03;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+}
+
+.pmeta {
+  margin: 3pt 0 0;
+  font-weight: 600;
+  font-size: 8.5pt;
+  color: rgba(247, 240, 226, 0.96);
+}
+
+/* ---- Body: schedule rail (col 1) + two-column session cards (cols 2-3) -- */
+
+.pbody {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2.05in 1fr;
+  gap: 0.15in;
+  padding-top: 0.09in;
+  min-height: 0;
+}
+
+.rail-h {
+  font-size: 10pt;
+  color: var(--ink);
+  border-bottom: 2px solid var(--brand-gold);
+  padding-bottom: 2pt;
+  margin-bottom: 3pt;
+}
+
+/* ---- Schedule rail (column 1) ------------------------------------------ */
+
+.prail {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--brand-red);
+  border-radius: 4px;
+  padding: 6pt 8pt;
+  align-self: start;
+}
+
+/* ---- Session cards: balanced two columns ------------------------------- */
+
+.pcards {
+  min-width: 0;
+  column-count: 2;
+  column-gap: 0.15in;
+}
+
+.prail-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.prail-list li {
+  padding: 2.1pt 0;
+  border-bottom: 1px dashed #cdbfa8;
+}
+
+.prail-list li:last-child {
+  border-bottom: 0;
+}
+
+.prail-time {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 7.8pt;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.prail-label {
+  display: block;
+  font-size: 8.2pt;
+  line-height: 1.2;
+}
+
+.prail-list li.muted .prail-time {
+  color: #8a7d6c;
+}
+
+.prail-list li.muted .prail-label {
+  color: #8a7d6c;
+  font-style: italic;
+}
+
+/* ---- Session cards ----------------------------------------------------- */
+
+.pcard {
+  break-inside: avoid;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--brand-red);
+  border-radius: 3px;
+  padding: 4pt 6pt;
+  margin: 0 0 0.08in;
+}
+
+.pcard-h {
+  display: flex;
+  align-items: baseline;
+  gap: 6pt;
+  margin-bottom: 2pt;
+}
+
+.pcard-time {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 8pt;
+  color: var(--brand-red);
+  white-space: nowrap;
+}
+
+.pcard-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 9.5pt;
+  line-height: 1.06;
+  color: var(--ink);
+}
+
+.pcard-desc {
+  font-size: 7.4pt;
+  line-height: 1.2;
+  color: var(--ink-soft);
+  margin: 0 0 3pt;
+}
+
+.pcard-desc p {
+  margin: 0 0 2pt;
+}
+
+.pcard-desc p:last-child {
+  margin-bottom: 0;
+}
+
+.pcard-desc strong {
+  color: var(--ink);
+}
+
+/* ---- Speaker faces (single-column list within each card) --------------- */
+
+.pfaces {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3pt;
+}
+
+.pface {
+  display: flex;
+  align-items: center;
+  gap: 5pt;
+  width: 100%;
+}
+
+.pface-photo {
+  width: 22pt;
+  height: 22pt;
+  flex: 0 0 22pt;
+  object-fit: cover;
+  object-position: center 18%;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #d9d2c7;
+}
+
+.pface-photo[src$="placeholder.svg"] {
+  border: none;
+  background: transparent;
+}
+
+.pface-txt {
+  min-width: 0;
+  line-height: 1.1;
+}
+
+.pface-name {
+  display: block;
+  font-weight: 700;
+  font-size: 7.4pt;
+}
+
+.pface-role {
+  display: block;
+  font-size: 6.4pt;
+  color: var(--ink-soft);
+}
+
+/* ---- Screen preview vs. print ------------------------------------------ */
+
+@media screen {
+  body {
+    background: #cfc6b6;
+    padding: 24px 0;
+  }
+
+  .sheet {
+    min-height: 11in;
+    box-shadow: 0 14px 40px rgba(20, 19, 19, 0.35);
+  }
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.35in;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .sheet {
+    width: auto;
+    padding: 0;
+    margin: 0;
+  }
+}

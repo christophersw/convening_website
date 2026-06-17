@@ -4,7 +4,7 @@ title: "Eric Leshinsky"
 permalink: /speakers/eric-leshinsky/
 speaker_name: "Eric Leshinsky"
 speaker_title: "Chief of Comprehensive Planning, City of Annapolis"
-photo: /assets/images/speakers/eric-leshinsky.jpg
+photo: /assets/images/speakers/eric-leshinsky.png
 photo_alt: "Headshot of Eric Leshinsky"
 sessions:
   - time: "10:00-10:45 AM"

@@ -1,0 +1,54 @@
+{%- comment -%}
+Title: print-session-card.html — One session card for the print agenda
+Description:
+  Renders a single session as a card on the printable Agenda at a Glance page:
+  session time + title, the full session description (markdown preserved), and a
+  row of speaker headshots with names and titles pulled live from each speaker's
+  page front matter. Moderators/facilitators are marked and tinted. Placeholder
+  body text ("Coming Soon.") is suppressed, and speakers without a linked page
+  (e.g. unnamed closing speakers) are skipped.
+
+Parameter:
+  session - the session page object (looked up by permalink in print-agenda.md)
+
+Changelog:
+  2026-06-17: Initial version — created for the Agenda at a Glance printout.
+{%- endcomment -%}
+{%- assign s = include.session -%}
+<article class="pcard">
+  <div class="pcard-h">
+    <span class="pcard-time">{{ s.session_time }}</span>
+    <h3 class="pcard-title">{{ s.session_title | default: s.title }}</h3>
+  </div>
+
+  {%- assign desc_text = s.content | markdownify | strip_html | strip | normalize_whitespace -%}
+  {%- unless desc_text == "" or desc_text == "Coming Soon." or desc_text == "Coming Soon" -%}
+  <div class="pcard-desc">{{ s.content | markdownify }}</div>
+  {%- endunless -%}
+
+  {%- comment -%} Count linked speakers so a single speaker spans the full width. {%- endcomment -%}
+  {%- assign linked_count = 0 -%}
+  {%- for sp in s.speakers -%}{%- if sp.url and sp.url != "" -%}{%- assign linked_count = linked_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
+
+  {%- if linked_count > 0 -%}
+  <ul class="pfaces{% if linked_count == 1 %} solo{% endif %}">
+    {%- for sp in s.speakers -%}
+    {%- if sp.url and sp.url != "" -%}
+    {%- assign sp_page = site.pages | where: "url", sp.url | first -%}
+    {%- assign sp_photo = sp.photo | default: sp_page.photo | default: '/assets/images/speakers/placeholder.svg' -%}
+    {%- assign sp_title = sp_page.speaker_title -%}
+    {%- assign role = sp.role | default: '' -%}
+    {%- assign is_mod = false -%}
+    {%- if role contains 'Moderator' or role contains 'Facilitator' -%}{%- assign is_mod = true -%}{%- endif -%}
+    <li class="pface">
+      <img class="pface-photo{% if is_mod %} mod{% endif %}" src="{{ sp_photo | relative_url }}" alt="{{ sp.name }}" />
+      <div class="pface-txt">
+        <span class="pface-name">{{ sp.name }}</span>
+        <span class="pface-role">{% if is_mod %}Moderator &middot; {% endif %}{{ sp_title }}</span>
+      </div>
+    </li>
+    {%- endif -%}
+    {%- endfor -%}
+  </ul>
+  {%- endif -%}
+</article>

@@ -1,0 +1,30 @@
+<!--
+  Title: print.html — Minimal layout for print-optimized pages
+  Description:
+    A chrome-free Jekyll layout (no site nav, header, or footer) used by the
+    printable "Agenda at a Glance" page. Loads the brand fonts and the dedicated
+    print stylesheet, then renders the page content inside a letter-sized sheet.
+
+  Changelog:
+    2026-06-17: Initial version — created for the Agenda at a Glance printout.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 | default: site.description }}" />
+    <meta name="robots" content="noindex" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ '/assets/css/print-agenda.css' | relative_url }}" />
+  </head>
+  <body>
+    <div class="sheet">
+      {{ content }}
+    </div>
+  </body>
+</html>

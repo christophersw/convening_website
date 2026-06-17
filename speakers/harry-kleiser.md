@@ -4,7 +4,7 @@ title: "Harry Kleiser"
 permalink: /speakers/harry-kleiser/
 speaker_name: "Harry Kleiser"
 speaker_title: "Senior Managing Principal, Federal, Salas O'Brien"
-photo: /assets/images/speakers/harry-kleiser.jpg
+photo: /assets/images/speakers/harry-kleiser.png
 photo_alt: "Headshot of Harry Kleiser"
 sessions:
   - time: "11:00-11:45 AM"
