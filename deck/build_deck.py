@@ -257,7 +257,7 @@ AGENDA = [
         "slide": True,
         "speakers": [
             ("Cyrena Chiles Eitler", "Moderator", "cyrena-chiles-eitler.jpg"),
-            ("Eric Leshinsky", "Panelist", None),  # photo to be added manually
+            ("Eric Leshinsky", "Panelist", "eric-leshinsky.png"),
         ],
     },
     {
@@ -278,7 +278,7 @@ AGENDA = [
         "kind": "session",
         "slide": True,
         "speakers": [
-            ("Harry Kleiser", "Moderator", None),  # photo to be added manually
+            ("Harry Kleiser", "Moderator", "harry-kleiser.png"),
             ("Shawn Butler", "Panelist", "shawn-butler.png"),
             ("Brian Lazarchick", "Panelist", "brian-lazarchick.jpg"),
         ],
@@ -821,11 +821,14 @@ def draw_up_next(canvas, draw, next_item):
     label_font = font("oswald-600", 46)
     draw_tracked(draw, (MARGIN, band_top + 48), "UP NEXT", label_font, GOLD, 10)
 
+    # Keep the next-session title on a single line, sized to clear the start
+    # time on the right (reserve ~560px). One line avoids an awkward wrap that
+    # PowerPoint would otherwise re-break in the editable deck.
     next_font, lines, _ = fit_display_text(
         draw,
         next_item["title"],
-        WIDTH - MARGIN * 2 - 60,
-        2,
+        WIDTH - MARGIN * 2 - 560,
+        1,
         [70, 62, 54, 48],
         font_name="sans-700",
     )

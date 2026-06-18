@@ -296,13 +296,16 @@ def draw_up_next(slide, next_item):
     add_rect(slide, 0, band_top, WIDTH, 7, bd.GOLD)
     add_text(slide, bd.MARGIN, band_top + 44, 700, 64, "UP NEXT", font_name=OSWALD,
              size_px=46, fill=bd.GOLD, bold=True, tracking_px=10)
+    # Single line, sized to clear the start time (reserve ~560px). wrap=False so
+    # PowerPoint renders this exact line instead of re-wrapping it when a font
+    # substitution makes the text slightly wider than on the build machine.
     _, lines, size = bd.fit_display_text(
-        _SCRATCH, next_item["title"], WIDTH - bd.MARGIN * 2 - 360, 2,
+        _SCRATCH, next_item["title"], WIDTH - bd.MARGIN * 2 - 560, 1,
         [70, 62, 54, 48], font_name="sans-700",
     )
-    add_text(slide, bd.MARGIN, band_top + 104, WIDTH - bd.MARGIN * 2 - 360,
+    add_text(slide, bd.MARGIN, band_top + 104, WIDTH - bd.MARGIN * 2 - 560,
              int(size * 1.1) * len(lines) + 20, lines=lines, font_name=PUBLIC_SANS,
-             size_px=size, fill=bd.LIGHT, bold=True, line_spacing=1.05)
+             size_px=size, fill=bd.LIGHT, bold=True, line_spacing=1.05, wrap=False)
     add_text(slide, WIDTH - bd.MARGIN - 520, band_top + 84, 520, 110,
              next_item["start"], font_name=OSWALD, size_px=84, fill=bd.GOLD,
              bold=True, align=PP_ALIGN.RIGHT, anchor=MSO_ANCHOR.MIDDLE)
