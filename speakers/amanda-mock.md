@@ -4,8 +4,8 @@ title: "Amanda Mock"
 permalink: /speakers/amanda-mock/
 speaker_name: "Amanda Mock"
 speaker_title: "Operations Manager, Resilience Authority of Charles County"
-photo: /assets/images/speakers/placeholder.svg
-photo_alt: "Speaker photo placeholder for Amanda Mock"
+photo: /assets/images/speakers/amanda-mock.jpeg
+photo_alt: "Headshot of Amanda Mock"
 sessions:
   - time: "1:35-2:25 PM"
     title: "Panel: Creative Financing Opportunities"
