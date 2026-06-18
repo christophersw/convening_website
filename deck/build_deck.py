@@ -318,7 +318,7 @@ AGENDA = [
             ("Mark Belton", "Moderator", "mark-belton.jpg"),
             ("Annabel Cryan", "Panelist", "annabel-cryan.jpg"),
             ("Mary Edwards", "Panelist", "mary-edwards.jpg"),
-            ("Stacy Schaefer", "Panelist", "stacy-schaefer.jpeg"),
+            ("Amanda Mock", "Panelist", None, "blank"),  # no headshot — blank placeholder disc
         ],
     },
     {
@@ -518,7 +518,23 @@ def placeholder_face(size):
     return img
 
 
-def headshot(path, size, shape="circle"):
+def blank_face(size):
+    """
+    Build a blank placeholder tile: the same neutral background as
+    ``placeholder_face`` but with no silhouette. Used for a speaker whose
+    headshot is intentionally left empty (a plain empty disc rather than a
+    "photo goes here" silhouette icon).
+
+    Parameters:
+        size (int): edge length in pixels.
+
+    Returns:
+        PIL.Image: an RGB image of size (size, size).
+    """
+    return Image.new("RGB", (size, size), (231, 223, 210))
+
+
+def headshot(path, size, shape="circle", blank=False):
     """
     Build a borderless RGBA headshot badge cropped to a circle or square.
 
@@ -528,6 +544,8 @@ def headshot(path, size, shape="circle"):
         path (str): image file path; a missing file yields a neutral disc.
         size (int): output edge length / diameter in pixels.
         shape (str): "circle" or "square".
+        blank (bool): when no photo is available, render an empty placeholder
+            disc (no silhouette) instead of the "photo goes here" silhouette.
 
     Returns:
         PIL.Image: an RGBA image of size (size, size).
@@ -543,6 +561,8 @@ def headshot(path, size, shape="circle"):
         img = img.crop((left, top, left + side, top + side)).resize(
             (big, big), Image.LANCZOS
         )
+    elif blank:
+        img = blank_face(big)
     else:
         img = placeholder_face(big)
 
@@ -770,13 +790,15 @@ def draw_speaker_row(canvas, draw, speakers, zone_top, zone_bottom, shape="circl
         # Headshot, vertically centered in the cell.
         if mode == "full":
             badge = headshot_full(path, head)
+        elif mode == "blank":
+            badge = headshot(path, head, shape="circle", blank=True)
         else:
             badge = headshot(path, head, shape=mode)
         head_y = cell_y + (cell_h - head) // 2
         badge_x = cell_x + (head - badge.width) // 2
         badge_y = head_y + (head - badge.height) // 2
         paste_with_shadow(canvas, badge, badge_x, badge_y,
-                          shape="circle" if mode == "circle" else "square")
+                          shape="circle" if mode in ("circle", "blank") else "square")
 
         # Text block, vertically centered against the headshot.
         ty = cell_y + (cell_h - block_h) // 2

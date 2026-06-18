@@ -14,9 +14,9 @@ speakers:
   - name: Mary Edwards
     role: Panelist
     url: /speakers/mary-edwards/
-  - name: Stacy Schaefer
+  - name: Amanda Mock
     role: Panelist
-    url: /speakers/stacy-schaefer/
+    url: /speakers/amanda-mock/
 ---
 
 This panel examines nontraditional and blended financing models that can advance resilience, energy, and infrastructure projects when grant funding alone is insufficient. Panelists will discuss tools such as green banks, resilience authorities, revolving funds, and public-private partnerships, with examples relevant to flooding mitigation, energy resilience, and sustainable community development.

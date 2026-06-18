@@ -62,6 +62,10 @@ _SCRATCH = ImageDraw.Draw(Image.new("RGB", (10, 10)))
 # Cached placeholder image path for speakers without a photo yet.
 _PLACEHOLDER_PATH = os.path.join(bd.BUILD_DIR, "_placeholder.png")
 
+# Cached blank placeholder (background only, no silhouette) for a speaker whose
+# headshot is intentionally left empty.
+_BLANK_PATH = os.path.join(bd.BUILD_DIR, "_blank.png")
+
 
 def emu(px):
     """Convert a canvas pixel measurement to EMU for slide geometry."""
@@ -158,13 +162,15 @@ def _set_oval_geometry(picture):
     sppr.append(geom)
 
 
-def add_headshot(slide, path, x, y, size, shape):
+def add_headshot(slide, path, x, y, size, shape, blank=False):
     """
     Add a headshot as a native picture: square cover-cropped (top-biased) and,
     for ``shape == "circle"``, masked to a circle. Missing photos use the
-    shared placeholder image so a real photo can be dropped in later.
+    shared placeholder image so a real photo can be dropped in later; when
+    ``blank`` is set, an empty placeholder disc (no silhouette) is used instead.
     """
-    source = path if (path and os.path.exists(path)) else _PLACEHOLDER_PATH
+    placeholder = _BLANK_PATH if blank else _PLACEHOLDER_PATH
+    source = path if (path and os.path.exists(path)) else placeholder
     picture = slide.shapes.add_picture(source, emu(x), emu(y), emu(size), emu(size))
 
     img_w, img_h = Image.open(source).size
@@ -253,7 +259,8 @@ def place_speakers(slide, speakers, zone_top, zone_bottom, default_shape):
         # non-square mode renders as a circle here.
         head_y = cell_y + (cell_h - head) // 2
         add_headshot(slide, path, cell_x, head_y, head,
-                     "square" if mode == "square" else "circle")
+                     "square" if mode == "square" else "circle",
+                     blank=(mode == "blank"))
 
         # Text block (name, role, title), vertically centered against the photo.
         text_top = cell_y + (cell_h - block_h) // 2
@@ -406,6 +413,7 @@ def build():
     """Build and save the native (editable) PowerPoint deck."""
     os.makedirs(bd.BUILD_DIR, exist_ok=True)
     bd.placeholder_face(800).save(_PLACEHOLDER_PATH)
+    bd.blank_face(800).save(_BLANK_PATH)
 
     presentation = Presentation()
     presentation.slide_width = Emu(SLIDE_W_EMU)
